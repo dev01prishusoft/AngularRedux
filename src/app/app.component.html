@@ -1,0 +1,39 @@
+<div class="container">
+	<div class="row m-1 p-4">
+		<div class="col">
+			<div class="p-1 h1 text-primary text-center mx-auto display-inline-block">
+				<u>My Tasks</u>
+			</div>
+		</div>
+	</div>
+
+	<div class="inputs">
+
+		<div class="form-group mb-2">
+			<label for="staticEmail2" class="sr-only">Task Name:</label>
+			<input type="text" class="form-control" [(ngModel)]="currentName" id="currentName" placeholder="Task Name">
+		</div>
+		<div class="form-group mx-sm-3 mb-2">
+			<label for="inputPassword2" class="sr-only">Task Description:</label>
+			<input type="text" class="form-control" [(ngModel)]="currentDescription" id="Description"
+				placeholder="Description">
+		</div>
+		<button type="submit" class="btn btn-primary mb-2" (click)="addTodo()">Add Task</button>
+
+	</div>
+
+
+	<div class="row">
+		<div class="col-4" *ngFor="let todo of todos; let i = index">
+			<div class="card" style="width: 18rem; margin-top: 10px;">
+				<div class="card-body">
+					<h5 class="card-title">{{todo.name}}</h5>
+					<p class="card-text">{{todo.description}}</p>
+					<h5 class="card-title">{{todo.date | date:'medium'}}</h5>
+					<a href="#" class="btn btn-primary" (click)="removeTodo(i)">Done</a>
+				</div>
+			</div>
+		</div>
+
+	</div>
+</div>
